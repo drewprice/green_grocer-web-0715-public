@@ -1,13 +1,3 @@
-require 'pry'
-
-cart = [
-  { 'TEMPEH'       => { price: 3.0, clearance: true  } },
-  { 'PEANUTBUTTER' => { price: 3.0, clearance: true  } },
-  { 'ALMONDS'      => { price: 9.0, clearance: false } },
-  { 'AVOCADO'      => { price: 3.0, clearance: true  } },
-  { 'AVOCADO'      => { price: 3.0, clearance: true  } }
-]
-
 def consolidate_cart(cart:[])
   cart.uniq.each_with_object({}) do |item, new_cart|
     name       = item.keys.first
@@ -18,8 +8,6 @@ def consolidate_cart(cart:[])
     new_cart[name] = attributes
   end
 end
-
-coupons = [{:item => "AVOCADO", :num => 2, :cost => 5.0}]
 
 def apply_coupons(cart:[], coupons:[])
   coupons.uniq.each_with_object(cart) do |coupon, new_cart|
